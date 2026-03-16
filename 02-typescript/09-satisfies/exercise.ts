@@ -1,10 +1,4 @@
-/**
- * satisfies — 직접 만들어보기
- */
-
-// ============================================================
-// 과제: 라우트 설정에 satisfies 적용
-// ============================================================
+// satisfies 과제
 
 type Route = {
   path: string
@@ -12,30 +6,22 @@ type Route = {
   handler: string
 }
 
-// satisfies로 검증하면서 구체적 타입 유지
-const routes = [
+/** 과제 1: satisfies로 라우트 설정 검증 */
+export const routes = [
   { path: '/users', method: 'GET', handler: 'getUsers' },
   { path: '/users', method: 'POST', handler: 'createUser' },
   { path: '/users/:id', method: 'PUT', handler: 'updateUser' },
 ] satisfies Route[]
 
-// routes[0].method 의 타입은? → 'GET' (리터럴!)
-// satisfies 없이 Route[]로 선언하면 → 'GET' | 'POST' | 'PUT' | 'DELETE' (넓어짐)
-
-// ============================================================
-// 과제 2: 테마 색상에 satisfies 적용
-// ============================================================
-
-type ThemeColors = Record<string, string>
-
-const theme = {
+/** 과제 2: 테마 색상 */
+export const theme = {
   primary: '#3b82f6',
   secondary: '#64748b',
   danger: '#ef4444',
-  success: '#22c55e',
-} satisfies ThemeColors
+} satisfies Record<string, string>
 
-// theme.primary  → '#3b82f6' (리터럴!)
-// theme.unknown  → 에러! (존재하지 않는 키)
-
-export { routes, theme }
+/** 과제 3: 라우트의 메서드별 핸들러를 반환 */
+export function getHandler(index: number): string {
+  // routes[index].handler 반환
+  throw new Error('구현해보세요!')
+}

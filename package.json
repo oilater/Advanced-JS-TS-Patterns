@@ -1,0 +1,29 @@
+{
+  "name": "advanced-js-ts-patterns",
+  "version": "1.0.0",
+  "description": "Vitest에 자주 쓰이는 JS/TS 중고급 패턴을 공부하고 실습합니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:js": "vitest run 01-javascript",
+    "test:ts": "vitest run 02-typescript",
+    "test:file": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oilater/Advanced-JS-TS-Patterns.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/oilater/Advanced-JS-TS-Patterns/issues"
+  },
+  "homepage": "https://github.com/oilater/Advanced-JS-TS-Patterns#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
+  }
+}

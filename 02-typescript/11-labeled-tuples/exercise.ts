@@ -1,47 +1,22 @@
-/**
- * 라벨 튜플 — 직접 만들어보기
- */
+// 라벨 튜플 과제
 
-// ============================================================
-// 과제 1: 좌표 시스템
-// ============================================================
+export type Point2D = [x: number, y: number]
+export type RGB = [red: number, green: number, blue: number]
+export type Range = [start: number, end: number]
 
-type Point2D = [x: number, y: number]
-type Point3D = [x: number, y: number, z: number]
-
-function distance(a: Point2D, b: Point2D): number {
-  const [x1, y1] = a
-  const [x2, y2] = b
-  return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-}
-
-// ============================================================
-// 과제 2: RGB 색상
-// ============================================================
-
-type RGB = [red: number, green: number, blue: number]
-type RGBA = [red: number, green: number, blue: number, alpha: number]
-
-function rgbToHex(color: RGB): string {
-  // TODO: [255, 128, 0] → '#ff8000'
+/** 과제 1: 두 점 사이의 거리 */
+export function distance(a: Point2D, b: Point2D): number {
   throw new Error('구현해보세요!')
 }
 
-// ============================================================
-// 과제 3: 범위와 구간
-// ============================================================
-
-type Range = [start: number, end: number]
-
-function isInRange(value: number, range: Range): boolean {
-  // TODO
+/** 과제 2: RGB를 hex 문자열로 변환 */
+export function rgbToHex(color: RGB): string {
+  // [255, 128, 0] → '#ff8000'
   throw new Error('구현해보세요!')
 }
 
-function overlap(a: Range, b: Range): Range | null {
-  // TODO: 두 범위의 교집합 반환, 없으면 null
+/** 과제 3: 두 범위의 교집합 */
+export function overlap(a: Range, b: Range): Range | null {
+  // 겹치는 부분이 없으면 null
   throw new Error('구현해보세요!')
 }
-
-export { distance, rgbToHex, isInRange, overlap }
-export type { Point2D, Point3D, RGB, RGBA, Range }

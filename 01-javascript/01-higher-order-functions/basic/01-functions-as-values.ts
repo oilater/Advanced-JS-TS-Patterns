@@ -6,74 +6,34 @@
  * 이게 고차 함수의 기반!
  */
 
-// ============================================================
 // 함수를 변수에 담기
-// ============================================================
-
 const greet = function (name: string) {
-  return `안녕, ${name}!`;
-};
+  return `안녕, ${name}!`
+}
 
 // 화살표 함수도 마찬가지
-const add = (a: number, b: number) => a + b;
+const add = (a: number, b: number) => a + b
 
 // 함수를 다른 변수에 할당
-const sum = add;
-console.log(sum(1, 2)); // 3
+const sum = add
+sum(1, 2) // 3
 
-// ============================================================
 // 함수를 배열에 넣기
-// ============================================================
-
 const operations = [
   (x: number) => x + 1,
   (x: number) => x * 2,
   (x: number) => x ** 2,
-];
+]
+operations.forEach((op) => op(3)) // 4, 6, 9
 
-// 배열의 함수를 하나씩 꺼내서 실행
-for (const op of operations) {
-  console.log(op(3)); // 4, 6, 9
-}
-
-// ============================================================
 // 함수를 인자로 전달 — 콜백!
-// ============================================================
-
 function doSomething(callback: (result: string) => void) {
-  const result = "작업 완료";
-  callback(result); // 전달받은 함수를 호출
+  callback('작업 완료')
 }
 
-doSomething((msg) => console.log(msg)); // "작업 완료"
+// 이미 매일 쓰고 있음:
+// [1, 2, 3].map((x) => x * 2)
+// [1, 2, 3].filter((x) => x > 1)
+// setTimeout(() => console.log('hi'), 1000)
 
-// 이미 자주 쓰고 있음:
-// [1, 2, 3].map((x) => x * 2)     ← map에 함수를 인자로 전달
-// [1, 2, 3].filter((x) => x > 1)  ← filter에 함수를 인자로 전달
-
-// ============================================================
-// 과제 1: 함수를 변수에 담아서 사용하기
-// ============================================================
-
-// TODO: double 함수를 만들어서 변수에 할당하기
-// double(5) 가 10을 반환하도록
-// 힌트: 화살표 함수를 변수에 담으면 됨
-const double = (x: number): number => {
-  throw new Error("구현해보세요!");
-};
-
-// ============================================================
-// 과제 2: 함수 배열을 순서대로 실행하는 pipe
-// ============================================================
-
-function pipe(value: number, fns: Array<(x: number) => number>): number {
-  // TODO: value에 fns의 함수를 순서대로 적용
-  // pipe(3, [add1, double]) → double(add1(3)) → 8
-  throw new Error("구현해보세요!");
-}
-
-// const add1 = (x: number) => x + 1
-// const double = (x: number) => x * 2
-// pipe(3, [add1, double]) → 8
-
-export { greet, add, double, pipe };
+export {}
