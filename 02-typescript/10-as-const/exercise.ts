@@ -9,20 +9,30 @@ const STATES = {
 
 export type AppState = (typeof STATES)[keyof typeof STATES]
 
-/** 과제 1: 상태 전이 함수 */
+/**
+ * 과제 1: 상태 전이 함수
+ *
+ * transition('idle', 'fetch')     → 'loading'
+ * transition('loading', 'resolve') → 'success'
+ * transition('loading', 'reject')  → 'error'
+ * transition('success', 'reset')   → 'idle'
+ * transition('error', 'reset')     → 'idle'
+ * transition('idle', 'unknown')    → 'idle'  (모르는 action → 현재 유지)
+ */
 export function transition(current: AppState, action: string): AppState {
-  // IDLE    + 'fetch'   → LOADING
-  // LOADING + 'resolve' → SUCCESS
-  // LOADING + 'reject'  → ERROR
-  // SUCCESS | ERROR + 'reset' → IDLE
-  // 그 외 → current 그대로 반환
   throw new Error('구현해보세요!')
 }
 
-/** 과제 2: 배열 as const에서 타입 추출 */
 const PERMISSIONS = ['read', 'write', 'admin'] as const
 export type Permission = (typeof PERMISSIONS)[number]
 
+/**
+ * 과제 2: 권한 확인
+ *
+ * hasPermission(['read', 'write'], 'read')  → true
+ * hasPermission(['read'], 'admin')           → false
+ * hasPermission([], 'read')                  → false
+ */
 export function hasPermission(
   userPermissions: readonly Permission[],
   required: Permission,
